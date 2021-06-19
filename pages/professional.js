@@ -8,7 +8,9 @@ export default function Home() {
       <Head>
         <title>CV - {siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>Bla</section>
+      <section className={utilStyles.headingMd}>
+        I am still working on my professional page. Check back soon!
+      </section>
     </Layout>
   );
 }

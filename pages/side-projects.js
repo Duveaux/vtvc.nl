@@ -11,6 +11,7 @@ export default function Home({ allPostsData }) {
         <title>Side projects - Vic van Cooten</title>
       </Head>
       <section className={utilStyles.headingMd}>Side projects</section>
+      <section>I am still working to list my side projects here.</section>
       <section>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
