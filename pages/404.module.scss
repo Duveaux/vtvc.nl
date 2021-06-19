@@ -1,0 +1,11 @@
+.parent {
+  display: flex;
+  min-height: 100vh;
+}
+.child {
+  margin: auto;
+  & h1 {
+    text-align: center;
+    font-weight: 100;
+  }
+}
