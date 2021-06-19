@@ -26,24 +26,22 @@ export default function Layout({ children, home }) {
       </Head>
       <div className={styles.mainMenu} style={{ width: home ? 100 : 80 }}>
         <div className={styles.mainIcon}>
-          <Tooltip placement="right" title="CV">
-            <Link href="/">
-              <Image
-                priority
-                src="/images/vic.jpg"
-                className={utilStyles.borderCircle}
-                height={home ? 65 : 50}
-                width={home ? 65 : 50}
-                alt={name}
-                placeholder="blur"
-              />
-            </Link>
-          </Tooltip>
+          <Link href="/">
+            <Image
+              priority
+              src="/images/vic.jpg"
+              className={utilStyles.borderCircle}
+              height={home ? 65 : 50}
+              width={home ? 65 : 50}
+              alt={name}
+              placeholder="blur"
+            />
+          </Link>
         </div>
-        <Tooltip placement="right" title="Side projects">
-          <Link href="/professional">
-            <a>
-              <div style={{ width: "100%", height: 75, textAlign: "center" }}>
+        <Link href="/professional">
+          <a>
+            <div style={{ width: "100%", height: 75, textAlign: "center" }}>
+              <Tooltip title="Professional page" placement="right">
                 <Icon
                   path={mdiTextBoxSearchOutline}
                   size={1}
@@ -54,19 +52,21 @@ export default function Layout({ children, home }) {
                     alignContent: "center",
                   }}
                 />
-              </div>
-            </a>
-          </Link>
-        </Tooltip>
+              </Tooltip>
+            </div>
+          </a>
+        </Link>
         <Link href="/side-projects">
           <a>
             <div style={{ width: "100%", height: 75, textAlign: "center" }}>
-              <Icon
-                path={mdiWrenchOutline}
-                size={1}
-                color="red"
-                style={{ width: home ? 100 : 80, margin: 15 }}
-              />
+              <Tooltip title="Side projects" placement="right">
+                <Icon
+                  path={mdiWrenchOutline}
+                  size={1}
+                  color="red"
+                  style={{ width: home ? 100 : 80, margin: 15 }}
+                />
+              </Tooltip>
             </div>
           </a>
         </Link>
