@@ -1,0 +1,35 @@
+.container {
+  max-width: 36rem;
+  padding: 0 1rem;
+  margin: 0 auto 6rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backToHome {
+  margin: 3rem 0 0;
+}
+
+.mainIcon {
+  margin: 15px;
+  cursor: pointer;
+  border-radius: 9999px;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.mainMenu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100px;
+}

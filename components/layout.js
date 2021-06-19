@@ -1,73 +1,89 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "./layout.module.css";
+import styles from "./layout.module.scss";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
+import { mdiTextBoxSearchOutline, mdiWrenchOutline } from "@mdi/js";
+import Icon from "@mdi/react";
+import { Tooltip } from "@material-ui/core";
 
 const name = "Vic van Cooten";
 export const siteTitle = "Vic van Cooten";
 
 export default function Layout({ children, home }) {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
+        <meta name="description" content="Vic van Cooten" />
+        <meta property="og:image" content={`https://vtvc.nl/images/vic.jpg`} />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
       </Head>
-      <header className={styles.header}>
-        {home ? (
-          <>
+      <div className={styles.mainMenu} style={{ width: home ? 100 : 80 }}>
+        <div className={styles.mainIcon}>
+          <Link href="/">
             <Image
               priority
               src="/images/vic.jpg"
               className={utilStyles.borderCircle}
-              height={144}
-              width={144}
+              height={home ? 65 : 50}
+              width={home ? 65 : 50}
               alt={name}
+              placeholder="blur"
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <a>
-                <Image
-                  priority
-                  src="/images/vic.jpg"
-                  className={utilStyles.borderCircle}
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
-              </a>
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
-              </Link>
-            </h2>
-          </>
-        )}
-      </header>
-      <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
           </Link>
         </div>
-      )}
-    </div>
+        <Link href="/professional">
+          <a>
+            <div style={{ width: "100%", height: 75, textAlign: "center" }}>
+              <Tooltip title="Professional page" placement="right">
+                <Icon
+                  path={mdiTextBoxSearchOutline}
+                  size={1}
+                  color="red"
+                  style={{
+                    width: home ? 100 : 80,
+                    margin: 15,
+                    alignContent: "center",
+                  }}
+                />
+              </Tooltip>
+            </div>
+          </a>
+        </Link>
+        <Link href="/side-projects">
+          <a>
+            <div style={{ width: "100%", height: 75, textAlign: "center" }}>
+              <Tooltip title="Side projects" placement="right">
+                <Icon
+                  path={mdiWrenchOutline}
+                  size={1}
+                  color="red"
+                  style={{ width: home ? 100 : 80, margin: 15 }}
+                />
+              </Tooltip>
+            </div>
+          </a>
+        </Link>
+      </div>
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <h1 className={utilStyles.heading2Xl}>{name}</h1>
+        </header>
+        <main>{children}</main>
+        {!home && (
+          <div className={styles.backToHome}>
+            <Link href="/">
+              <a>← Back to home</a>
+            </Link>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
