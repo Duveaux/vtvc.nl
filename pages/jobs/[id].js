@@ -13,7 +13,7 @@ export default function Post({ jobData }) {
       <article>
         <h1 className={utilStyles.headingXl}>{jobData.title}</h1>
         <div className={utilStyles.lightText}>
-          <Date dateString={jobData.date} />
+          <Date dateString={jobData.dateFrom} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: jobData.contentHtml }} />
       </article>
