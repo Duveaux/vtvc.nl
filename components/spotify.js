@@ -1,13 +1,16 @@
 import { mdiSpotify } from "@mdi/js";
 import Icon from "@mdi/react";
 import { useEffect, useState } from "react";
+import { Tooltip } from "@material-ui/core";
 
 export default function Spotify() {
   const [spotifyInfo, setSpotifyInfo] = useState({
     is_playing: null,
     title: "...",
+    songUrl: "https://vtvc.nl",
     artist: "...",
-    url: "https://vtvc.nl",
+    artistUrl: "https://vtvc.nl",
+    albumName: "...",
   });
 
   useEffect(() => {
@@ -34,11 +37,19 @@ export default function Spotify() {
             style={{ marginRight: "15px", position: "relative", top: 5 }}
             color="red"
           />
-          <span
-            dangerouslySetInnerHTML={{
-              __html: `Currently listening to <a href='${spotifyInfo.url}'>${spotifyInfo.title}</a> by ${spotifyInfo.artist}`,
-            }}
-          />
+          Currently listening to{" "}
+          <Tooltip
+            placement="bottom"
+            title={`From the album '${spotifyInfo.albumName}'`}
+          >
+            <a href={spotifyInfo.songUrl} target="_blank">
+              {spotifyInfo.title}
+            </a>
+          </Tooltip>{" "}
+          by{" "}
+          <a href={spotifyInfo.artistUrl} target="_blank">
+            {spotifyInfo.artist}
+          </a>
         </>
       ) : (
         <a href="https://open.spotify.com/user/duveaux" target="_blank">

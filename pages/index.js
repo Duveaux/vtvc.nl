@@ -15,7 +15,7 @@ export default function Home() {
       <section
         className={utilStyles.headingMd}
         style={{
-          marginTop: "30vh",
+          marginTop: "26vh",
         }}
       >
         <p>
@@ -28,7 +28,7 @@ export default function Home() {
           make things work better.
         </p>
         <p>
-          I am currently working to improve internal processes at{" "}
+          I am currently improving the internal processes at{" "}
           <Tooltip placement="right" title="UBN Uitzendbureau">
             <a href="https://ubnuitzendbureau.com" target="_blank">
               <Image
@@ -39,12 +39,24 @@ export default function Home() {
                 alt="UBN"
                 placeholder="blur"
               />
-              .
             </a>
           </Tooltip>
+          . I work primarily with Salesforce at the moment.
         </p>
         <p>
-          Feel free to <a href="mailto:hi@vtvc.nl">contact me</a>.
+          I have experience running medium to large sized projects both hands-on
+          and hands-off.
+        </p>
+        <p>
+          Feel free to{" "}
+          <a href="mailto:hi@vtvc.nl" target="_blank">
+            contact me
+          </a>{" "}
+          or add me on{" "}
+          <a href="https://www.linkedin.com/in/vtvc/" target="_blank">
+            LinkedIn
+          </a>
+          .
         </p>
       </section>
       <section>

@@ -31,8 +31,8 @@ export default function Layout({ children, home }) {
               priority
               src="/images/vic.jpg"
               className={utilStyles.borderCircle}
-              height={home ? 65 : 50}
-              width={home ? 65 : 50}
+              height={65}
+              width={65}
               alt={name}
               placeholder="blur"
             />
@@ -73,16 +73,11 @@ export default function Layout({ children, home }) {
       </div>
       <div className={styles.container}>
         <header className={styles.header}>
-          <h1 className={utilStyles.heading2Xl}>{name}</h1>
+          <h1 className={utilStyles.heading2Xl}>
+            Vic <span className={styles.lastName}>van Cooten</span>
+          </h1>
         </header>
         <main>{children}</main>
-        {!home && (
-          <div className={styles.backToHome}>
-            <Link href="/">
-              <a>← Back to home</a>
-            </Link>
-          </div>
-        )}
       </div>
     </>
   );

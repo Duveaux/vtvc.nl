@@ -8,6 +8,8 @@ export default async (_, res) => {
     is_playing,
     title: item.name,
     artist: item.artists[0].name,
-    url: item.external_urls.spotify,
+    artistUrl: item.artists[0].external_urls.spotify,
+    songUrl: item.external_urls.spotify,
+    albumName: item.album.name,
   });
 };
