@@ -1,27 +1,27 @@
 import Layout from "../../components/layout";
-import { getAllPostIds, getPostData } from "../../lib/posts";
+import { getAllJobsIds, getJob } from "../../lib/jobs";
 import Head from "next/head";
 import Date from "../../components/date";
 import utilStyles from "../../styles/utils.module.css";
 
-export default function Post({ postData }) {
+export default function Post({ jobData }) {
   return (
     <Layout>
       <Head>
-        <title>{postData.title}</title>
+        <title>{jobData.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+        <h1 className={utilStyles.headingXl}>{jobData.title}</h1>
         <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
+          <Date dateString={jobData.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div dangerouslySetInnerHTML={{ __html: jobData.contentHtml }} />
       </article>
     </Layout>
   );
 }
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const paths = getAllJobsIds();
   return {
     paths,
     fallback: false,
@@ -29,10 +29,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id);
+  const jobData = await getJob(params.id);
   return {
     props: {
-      postData,
+      jobData,
     },
   };
 }

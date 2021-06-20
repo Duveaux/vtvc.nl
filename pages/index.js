@@ -60,6 +60,14 @@ export default function Home() {
         </p>
       </section>
       <section>
+        <hr
+          style={{
+            height: 1,
+            border: "none",
+            backgroundColor: "rgba(10,10,10,0.4)",
+            margin: "15px 60px",
+          }}
+        />
         <Spotify />
       </section>
     </Layout>
