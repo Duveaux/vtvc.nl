@@ -3,6 +3,7 @@ import Layout from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
 import { getSortedJobs } from "../lib/jobs";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Accordion,
   AccordionDetails,
@@ -12,6 +13,7 @@ import {
   ListItemText,
   Typography,
 } from "@material-ui/core";
+import { format } from "date-fns";
 
 export default function Professional({ allJobs }) {
   return (
@@ -182,16 +184,50 @@ export default function Professional({ allJobs }) {
       <section>I have worked in the following companies.</section>
       <section>
         <ul className={utilStyles.list}>
-          {allJobs.map(({ id, dateFrom, title, role, summary }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/jobs/${id}`}>
-                <a>{role}</a>
-              </Link>
-              - <small>{title}</small>{" "}
-              <small className={utilStyles.lightText}>{dateFrom}</small>
-              <div>{summary}</div>
-            </li>
-          ))}
+          {allJobs.map(
+            (
+              { id, dateFrom, title, role, summary, image, dateUntil },
+              index
+            ) => (
+              <li
+                className={utilStyles.listItem}
+                key={id}
+                style={{
+                  display: "flex",
+                  margin: "15px 0",
+                  flexDirection: index % 2 == 0 ? "row" : "row-reverse",
+                }}
+              >
+                <div>
+                  <Image
+                    priority
+                    src={image}
+                    height={75}
+                    width={75}
+                    alt="UBN"
+                    placeholder="blur"
+                  />
+                </div>
+                <div style={{ flex: 10 }}>
+                  <Link href={`/jobs/${id}`}>
+                    <a>{role}</a>
+                  </Link>
+                  - <small>{title}</small>{" "}
+                  <small className={utilStyles.lightText}>
+                    <time>{format(Date.parse(dateFrom), "MMMM yyyy")}</time>
+                  </small>{" "}
+                  -{" "}
+                  <small className={utilStyles.lightText}>
+                    {format(
+                      dateUntil === "NOW" ? new Date() : Date.parse(dateUntil),
+                      "MMMM yyyy"
+                    )}
+                  </small>
+                  <div>{summary}</div>
+                </div>
+              </li>
+            )
+          )}
         </ul>
       </section>
     </Layout>
