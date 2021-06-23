@@ -71,7 +71,7 @@ export default function Layout({ children, home }) {
           </a>
         </Link>
       </div>
-      <div className={styles.container}>
+      <div className={home ? styles.container : styles.containerDetail}>
         <header className={styles.header}>
           <h1 className={utilStyles.heading2Xl}>
             Vic <span className={styles.lastName}>van Cooten</span>
