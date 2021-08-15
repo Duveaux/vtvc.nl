@@ -1,5 +1,5 @@
 ---
-title: "AppBox (untitled CRM)"
+title: "FrontBase.io"
 ---
 
 A PoC of a CRM that allows you to track most primary processes. Fully abstract data layer. Automations, custom relations, smart fields and more.
